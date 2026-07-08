@@ -17,13 +17,13 @@ TUI training screen should show:
 The trainer should support:
 
 ```text
-personal-maia train --resume
-personal-maia train --device cuda
-personal-maia train --device cpu
-personal-maia train --max-steps N
-personal-maia train --preset quick
-personal-maia train --preset balanced
-personal-maia train --preset thorough
+rabbi train --resume
+rabbi train --device cuda
+rabbi train --device cpu
+rabbi train --max-steps N
+rabbi train --preset quick
+rabbi train --preset balanced
+rabbi train --preset thorough
 ```
 
 MVP can call Maia Individual training scripts as a subprocess inside a managed environment.

@@ -7,7 +7,7 @@ from pathlib import Path
 import shlex
 import sys
 
-from personal_maia.config import (
+from rabbi.config import (
     FilterConfig,
     ProjectPaths,
     init_project,
@@ -15,21 +15,21 @@ from personal_maia.config import (
     save_project,
     write_json,
 )
-from personal_maia.data.ingest import ingest_local_pgn, ingest_local_pgns
-from personal_maia.data.split import prepare_training_split
-from personal_maia.engine.package import EnginePackageConfig, create_engine_package
-from personal_maia.engine.smoke import smoke_test_engine
-from personal_maia.maia.converter import ConversionConfig, MaiaDataConverter
-from personal_maia.maia.trainer import MaiaIndividualTrainer, TrainerConfig
-from personal_maia.maia.weights import find_latest_weights
-from personal_maia.sources import (
+from rabbi.data.ingest import ingest_local_pgn, ingest_local_pgns
+from rabbi.data.split import prepare_training_split
+from rabbi.engine.package import EnginePackageConfig, create_engine_package
+from rabbi.engine.smoke import smoke_test_engine
+from rabbi.maia.converter import ConversionConfig, MaiaDataConverter
+from rabbi.maia.trainer import MaiaIndividualTrainer, TrainerConfig
+from rabbi.maia.weights import find_latest_weights
+from rabbi.sources import (
     LichessDownloadOptions,
     download_chesscom_pgn,
     download_lichess_pgn,
     parse_source,
 )
-from personal_maia.status import collect_status
-from personal_maia.system import run_doctor
+from rabbi.status import collect_status
+from rabbi.system import run_doctor
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -43,7 +43,7 @@ def main(argv: list[str] | None = None) -> int:
 
 
 def build_parser() -> ArgumentParser:
-    parser = ArgumentParser(prog="personal-maia")
+    parser = ArgumentParser(prog="rabbi")
     sub = parser.add_subparsers(dest="command", required=True)
 
     doctor = sub.add_parser("doctor", help="Check local dependencies.")
@@ -473,7 +473,7 @@ def _resolve_build_sources(args: Namespace, paths: ProjectPaths) -> list[Path]:
 
 
 def cmd_wizard(_: Namespace) -> int:
-    print("Personal Maia minimal local-PGN wizard")
+    print("Rabbi minimal local-PGN wizard")
     name = input("Project name: ").strip()
     workspace = Path(input("Workspace directory [.]: ").strip() or ".").expanduser()
     pgn = Path(input("PGN file: ").strip()).expanduser()

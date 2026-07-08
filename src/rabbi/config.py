@@ -29,7 +29,7 @@ class SourceSpec:
 @dataclass(slots=True)
 class ProjectConfig:
     name: str
-    created_by: str = "personal-maia"
+    created_by: str = "rabbi"
     sources: list[SourceSpec] = field(default_factory=list)
     filters: FilterConfig | None = None
 
@@ -111,7 +111,7 @@ def load_project(root: Path) -> ProjectConfig:
     filters = FilterConfig(**filters_data) if filters_data else None
     return ProjectConfig(
         name=data["name"],
-        created_by=data.get("created_by", "personal-maia"),
+        created_by=data.get("created_by", "rabbi"),
         sources=sources,
         filters=filters,
     )

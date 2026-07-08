@@ -4,8 +4,8 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 import os
 
-from personal_maia.config import ProjectPaths, sanitize_name, write_json
-from personal_maia.system.process import LoggedProcessResult, run_logged
+from rabbi.config import ProjectPaths, sanitize_name, write_json
+from rabbi.system.process import LoggedProcessResult, run_logged
 
 
 @dataclass(slots=True)
@@ -140,7 +140,7 @@ class MaiaIndividualTrainer:
             "output": {
                 "path": str(self.config.resolved_output_dir),
             },
-            "personal_maia": data,
+            "rabbi": data,
         }
 
     def build_command(self, config_path: Path | None = None) -> list[str]:
@@ -181,7 +181,7 @@ def _maia_env(maia_repo: Path) -> dict[str, str]:
     repo = str(maia_repo.resolve())
     env["PYTHONPATH"] = repo if not existing else f"{repo}{os.pathsep}{existing}"
     env.setdefault("PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION", "python")
-    env.setdefault("MPLCONFIGDIR", "/tmp/personal-maia-matplotlib")
+    env.setdefault("MPLCONFIGDIR", "/tmp/rabbi-matplotlib")
     return env
 
 

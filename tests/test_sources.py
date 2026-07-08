@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from personal_maia.sources import parse_source
+from rabbi.sources import parse_source
 
 
 def test_parse_lichess_profile_url():

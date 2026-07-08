@@ -90,8 +90,8 @@ python 2-training/train_transfer.py generated_config.yaml player_name --copy_dir
 The implemented commands that wrap this are:
 
 ```bash
-personal-maia convert-data --project ./runs/example --maia-repo ../maia-individual --player example
-personal-maia prepare-train --project ./runs/example --maia-repo ../maia-individual --base-model ./weights/maia-1900 --player example
+rabbi convert-data --project ./runs/example --maia-repo ../maia-individual --player example
+rabbi prepare-train --project ./runs/example --maia-repo ../maia-individual --base-model ./weights/maia-1900 --player example
 ```
 
 When those commands are run with `--run`, stdout/stderr is also saved under:

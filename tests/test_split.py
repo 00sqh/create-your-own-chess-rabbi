@@ -1,8 +1,8 @@
 from pathlib import Path
 
-from personal_maia.config import FilterConfig, init_project
-from personal_maia.data.ingest import ingest_local_pgn
-from personal_maia.data.split import prepare_training_split
+from rabbi.config import FilterConfig, init_project
+from rabbi.data.ingest import ingest_local_pgn
+from rabbi.data.split import prepare_training_split
 
 
 def test_prepare_training_split(tmp_path: Path):

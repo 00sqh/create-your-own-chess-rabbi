@@ -2,9 +2,9 @@ from pathlib import Path
 
 import pytest
 
-from personal_maia.config import init_project
-from personal_maia.maia.converter import ConversionConfig, MaiaDataConverter
-from personal_maia.maia.trainer import MaiaIndividualTrainer, TrainerConfig, _to_simple_yaml
+from rabbi.config import init_project
+from rabbi.maia.converter import ConversionConfig, MaiaDataConverter
+from rabbi.maia.trainer import MaiaIndividualTrainer, TrainerConfig, _to_simple_yaml
 
 
 def make_fake_maia_repo(tmp_path: Path) -> Path:

@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from personal_maia.system.doctor import run_doctor
+from rabbi.system.doctor import run_doctor
 
 
 def test_doctor_checks_maia_repo_paths(tmp_path: Path):

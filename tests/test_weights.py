@@ -3,7 +3,7 @@ import time
 
 import pytest
 
-from personal_maia.maia.weights import find_latest_weights
+from rabbi.maia.weights import find_latest_weights
 
 
 def test_find_latest_weights(tmp_path: Path):

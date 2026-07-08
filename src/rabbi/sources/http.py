@@ -4,7 +4,7 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 
 
-USER_AGENT = "personal-maia/0.1"
+USER_AGENT = "rabbi/0.1"
 
 
 def download_text(url: str, output: Path, *, headers: dict[str, str] | None = None) -> Path:

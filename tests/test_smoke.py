@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from personal_maia.engine.smoke import smoke_test_engine
+from rabbi.engine.smoke import smoke_test_engine
 
 
 def test_smoke_test_engine_with_fake_uci(tmp_path: Path):

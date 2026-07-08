@@ -5,12 +5,12 @@
 Proposed layout:
 
 ```text
-personal-maia/
+rabbi/
   IMPLEMENTATION.md
   README.md
   pyproject.toml
   src/
-    personal_maia/
+    rabbi/
       __init__.py
       cli.py
       tui.py
@@ -81,8 +81,8 @@ Separate dependencies into three groups:
 The tool should run a first-time dependency check:
 
 ```text
-personal-maia doctor
-personal-maia doctor --maia-repo ../maia-individual --base-model ./weights/maia-1900 --lc0 /path/to/lc0
+rabbi doctor
+rabbi doctor --maia-repo ../maia-individual --base-model ./weights/maia-1900 --lc0 /path/to/lc0
 ```
 
 `doctor` should report missing tools and offer installation instructions. It should not silently install heavyweight dependencies without user confirmation.

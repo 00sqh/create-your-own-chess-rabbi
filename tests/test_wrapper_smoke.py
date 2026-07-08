@@ -4,7 +4,7 @@ from pathlib import Path
 import subprocess
 import sys
 
-from personal_maia.engine import EnginePackageConfig, create_engine_package
+from rabbi.engine import EnginePackageConfig, create_engine_package
 
 
 def test_packaged_wrapper_speaks_uci_with_fake_lc0(tmp_path: Path):
@@ -50,7 +50,7 @@ for line in sys.stdin:
     )
 
     assert "uciok" in proc.stdout
-    assert "id name Personal Maia - fake-style" in proc.stdout
+    assert "id name Rabbi - fake-style" in proc.stdout
     assert "option name StyleNodes" in proc.stdout
     assert "readyok" in proc.stdout
     assert "bestmove e2e4" in proc.stdout

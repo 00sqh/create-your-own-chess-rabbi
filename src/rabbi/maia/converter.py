@@ -4,9 +4,9 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 import os
 
-from personal_maia.config import ProjectPaths, sanitize_name, write_json
-from personal_maia.data.pgn import normalize_player, parse_pgn
-from personal_maia.system.process import LoggedProcessResult, run_logged
+from rabbi.config import ProjectPaths, sanitize_name, write_json
+from rabbi.data.pgn import normalize_player, parse_pgn
+from rabbi.system.process import LoggedProcessResult, run_logged
 
 
 MIN_GAMES_PER_COLOR_FOR_MAIA_SPLIT = 10

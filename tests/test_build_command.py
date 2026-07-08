@@ -1,8 +1,8 @@
 from pathlib import Path
 import json
 
-from personal_maia.cli import main
-from personal_maia.config import init_project
+from rabbi.cli import main
+from rabbi.config import init_project
 
 
 def make_fake_maia_repo(tmp_path: Path) -> Path:

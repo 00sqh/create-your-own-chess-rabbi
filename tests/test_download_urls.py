@@ -1,9 +1,9 @@
-from personal_maia.sources import (
+from rabbi.sources import (
     build_chesscom_archives_url,
     build_chesscom_month_pgn_url,
     build_lichess_export_url,
 )
-from personal_maia.sources.lichess import LichessDownloadOptions
+from rabbi.sources.lichess import LichessDownloadOptions
 
 
 def test_build_lichess_export_url():

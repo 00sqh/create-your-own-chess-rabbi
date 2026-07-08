@@ -1,7 +1,7 @@
 from pathlib import Path
 
-from personal_maia.config import FilterConfig, init_project
-from personal_maia.data.ingest import ingest_local_pgns
+from rabbi.config import FilterConfig, init_project
+from rabbi.data.ingest import ingest_local_pgns
 
 
 def test_ingest_multiple_pgns(tmp_path: Path):

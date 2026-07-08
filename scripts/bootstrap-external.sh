@@ -142,7 +142,7 @@ Maia Individual expects Leela/Lc0 training-data tooling. This script clones
 DanielUranga/trainingdata-tool and builds it when Boost headers are available.
 Run:
 
-  PYTHONPATH=src python3 -m personal_maia.cli doctor --maia-repo external/src/maia-individual --lc0 external/bin/lc0 --python external/venv/bin/python
+  PYTHONPATH=src python3 -m rabbi.cli doctor --maia-repo external/src/maia-individual --lc0 external/bin/lc0 --python external/venv/bin/python
 
 If trainingdata-tool is still missing, install Boost and rerun this script.
 

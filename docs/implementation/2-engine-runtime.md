@@ -9,7 +9,7 @@ Use Lc0 as the actual engine executable.
 Lc0 supplies the search program and UCI interface:
 
 ```text
-personal-maia-engine wrapper
+rabbi-engine wrapper
 -> lc0 binary
 -> trained Maia-compatible weight file
 ```
@@ -21,7 +21,7 @@ The wrapper should not implement chess search. It should:
 - Optionally rewrite `go` commands to a style-preserving setting such as `go nodes 1`.
 - Expose friendlier engine metadata and options.
 
-The implemented wrapper rewrites Lc0's `id name` and `id author` lines to package-specific Personal Maia metadata, and injects wrapper UCI options before `uciok`.
+The implemented wrapper rewrites Lc0's `id name` and `id author` lines to package-specific Rabbi metadata, and injects wrapper UCI options before `uciok`.
 
 ### Neural Network Architecture
 
@@ -36,8 +36,8 @@ Use Maia Individual as the first trainer backend.
 The app wraps it through adapters:
 
 ```text
-personal_maia.maia.converter.MaiaDataConverter
-personal_maia.maia.trainer.MaiaIndividualTrainer
+rabbi.maia.converter.MaiaDataConverter
+rabbi.maia.trainer.MaiaIndividualTrainer
 ```
 
 Those adapters translate our project config into the files and command-line calls expected by Maia Individual. This keeps the product stable even if the research-code layout changes later.
@@ -48,10 +48,10 @@ The final package should expose a simple UCI executable. Internally it can be on
 
 ### Option A: Thin UCI Wrapper
 
-`personal-maia-engine` is a small executable or script that forwards UCI traffic to Lc0:
+`rabbi-engine` is a small executable or script that forwards UCI traffic to Lc0:
 
 ```text
-GUI <-> personal-maia-engine <-> lc0 -w weights/example-style.pb.gz
+GUI <-> rabbi-engine <-> lc0 -w weights/example-style.pb.gz
 ```
 
 Advantages:

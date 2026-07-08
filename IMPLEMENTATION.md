@@ -1,4 +1,4 @@
-# Personal Maia Implementation Plan
+# Rabbi Implementation Plan
 
 The original long implementation plan has been split into numbered files under `docs/implementation/`.
 

@@ -1,4 +1,4 @@
-from personal_maia.data.pgn import estimate_ply_count, filter_games, parse_pgn
+from rabbi.data.pgn import estimate_ply_count, filter_games, parse_pgn
 
 
 PGN = """

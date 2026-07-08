@@ -2,8 +2,8 @@ from pathlib import Path
 import json
 import os
 
-from personal_maia.engine import EnginePackageConfig, create_engine_package, rewrite_go_command
-from personal_maia.engine.uci_proxy import filter_engine_output, parse_wrapper_option
+from rabbi.engine import EnginePackageConfig, create_engine_package, rewrite_go_command
+from rabbi.engine.uci_proxy import filter_engine_output, parse_wrapper_option
 
 
 def test_rewrite_go_command_defaults_to_style_nodes():
@@ -15,7 +15,7 @@ def test_rewrite_go_command_defaults_to_style_nodes():
 def test_wrapper_options_and_output_filtering():
     assert parse_wrapper_option("setoption name StyleNodes value 7") == ("StyleNodes", "7")
     assert parse_wrapper_option("setoption name Unknown value 7") is None
-    assert filter_engine_output("id name Lc0\n", "alice") == "id name Personal Maia - alice\n"
+    assert filter_engine_output("id name Lc0\n", "alice") == "id name Rabbi - alice\n"
     assert "StyleNodes" in filter_engine_output("uciok\n", "alice")
 
 

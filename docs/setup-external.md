@@ -1,16 +1,16 @@
 # External Tool Setup
 
-Personal Maia separates two phases:
+Rabbi separates two phases:
 
 ```text
 training time: Maia Individual + pgn-extract + trainingdata-tool + ML dependencies
-runtime:       Lc0 + trained .pb.gz weights + Personal Maia wrapper
+runtime:       Lc0 + trained .pb.gz weights + Rabbi wrapper
 ```
 
 For development, install external tools under this project:
 
 ```bash
-cd /mnt/data/code/personal-maia
+cd /path/to/rabbi
 bash scripts/bootstrap-external.sh
 export PATH="$PWD/external/bin:$PATH"
 ```
@@ -46,7 +46,7 @@ python-chess PyYAML numpy pandas pytz
 Use that interpreter when converting:
 
 ```bash
-PYTHONPATH=src python3 -m personal_maia.cli convert-data \
+PYTHONPATH=src python3 -m rabbi.cli convert-data \
   --project ./runs/my-style \
   --maia-repo external/src/maia-individual \
   --player "Exact PGN Header Name" \
@@ -87,7 +87,7 @@ cp external/src/lc0/build/release/lc0 external/bin/lc0
 Then check:
 
 ```bash
-PYTHONPATH=src python3 -m personal_maia.cli doctor \
+PYTHONPATH=src python3 -m rabbi.cli doctor \
   --maia-repo external/src/maia-individual \
   --lc0 external/bin/lc0 \
   --base-model external/src/maia-individual/models/maia-1900 \
@@ -105,7 +105,7 @@ sudo pacman -S lc0 pgn-extract
 Then use:
 
 ```bash
-PYTHONPATH=src python3 -m personal_maia.cli doctor \
+PYTHONPATH=src python3 -m rabbi.cli doctor \
   --maia-repo external/src/maia-individual \
   --lc0 /usr/bin/lc0 \
   --base-model external/src/maia-individual/models/maia-1900 \

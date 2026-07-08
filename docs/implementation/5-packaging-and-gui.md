@@ -17,8 +17,8 @@ Package contents:
 The wrapper should expose a UCI name similar to:
 
 ```text
-id name Personal Maia - example
-id author Personal Maia
+id name Rabbi - example
+id author Rabbi
 ```
 
 It should also expose useful UCI options:
@@ -46,7 +46,7 @@ The TUI should finish with:
 
 ```text
 Engine package created:
-  /path/to/example-style/personal-maia-engine
+  /path/to/example-style/rabbi-engine
 
 In en-croissant:
   Engines -> Add -> Local -> Path -> select this executable
@@ -55,7 +55,7 @@ In en-croissant:
 Before adding the engine to en-croissant, the CLI can verify the executable:
 
 ```bash
-personal-maia smoke-test --engine /path/to/example-style/personal-maia-engine
+rabbi smoke-test --engine /path/to/example-style/rabbi-engine
 ```
 
 ## TUI Design

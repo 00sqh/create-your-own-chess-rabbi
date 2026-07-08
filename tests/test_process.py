@@ -1,7 +1,7 @@
 from pathlib import Path
 import sys
 
-from personal_maia.system.process import run_logged
+from rabbi.system.process import run_logged
 
 
 def test_run_logged_writes_output(tmp_path: Path):

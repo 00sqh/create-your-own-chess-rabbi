@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
-from personal_maia.config import ProjectPaths, sanitize_name, write_json
+from rabbi.config import ProjectPaths, sanitize_name, write_json
 
 from .pgn import games_to_pgn, parse_pgn
 

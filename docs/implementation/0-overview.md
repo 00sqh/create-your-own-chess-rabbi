@@ -30,7 +30,7 @@ The TUI should guide the user through:
 The CLI should support the same workflow non-interactively:
 
 ```bash
-personal-maia build \
+rabbi build \
   --name example-style \
   --source https://lichess.org/@/example \
   --source https://www.chess.com/member/example \
@@ -59,7 +59,7 @@ The final engine package should look like this:
 
 ```text
 example-style/
-  personal-maia-engine       # executable UCI wrapper
+  rabbi-engine       # executable UCI wrapper
   lc0/                       # bundled or referenced Lc0 binary
   weights/
     example-style.pb.gz      # trained network
@@ -79,7 +79,7 @@ example-style/
 In en-croissant, the user adds:
 
 ```text
-example-style/personal-maia-engine
+example-style/rabbi-engine
 ```
 
 The wrapper launches Lc0 with the trained weights and fixed Maia-style runtime settings.

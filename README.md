@@ -1,6 +1,6 @@
-# Create Your Own Chess Rabbi
+# Rabbi
 
-Create Your Own Chess Rabbi is a local-first tool for building a chess engine package that imitates one player's move style.
+Rabbi is a local-first tool for building a chess engine package that imitates one player's move style.
 
 The project is not a from-scratch chess engine. It uses:
 
@@ -9,7 +9,7 @@ The project is not a from-scratch chess engine. It uses:
 - Lc0 as the UCI runtime/search engine,
 - a small wrapper that makes the final engine easy to load in GUIs such as en-croissant.
 
-The command-line package is still named `personal-maia`.
+The command-line package is named `rabbi`.
 
 ## What It Can Do
 
@@ -59,7 +59,7 @@ Training needs more:
 From this repository:
 
 ```bash
-cd /mnt/data/code/personal-maia
+cd /path/to/rabbi
 bash scripts/bootstrap-external.sh
 export PATH="$PWD/external/bin:$PATH"
 export PYTHONPATH=src
@@ -68,7 +68,7 @@ export PYTHONPATH=src
 Check the conversion/runtime tools:
 
 ```bash
-python3 -m personal_maia.cli doctor \
+python3 -m rabbi.cli doctor \
   --maia-repo external/src/maia-individual \
   --base-model external/src/maia-individual/models/maia-1900 \
   --lc0 external/bin/lc0 \
@@ -86,7 +86,7 @@ external/train-venv/bin/python -m pip install python-chess tensorboardX
 Then check it:
 
 ```bash
-python3 -m personal_maia.cli doctor \
+python3 -m rabbi.cli doctor \
   --maia-repo external/src/maia-individual \
   --base-model external/src/maia-individual/models/maia-1900 \
   --lc0 external/bin/lc0 \
@@ -98,13 +98,13 @@ python3 -m personal_maia.cli doctor \
 Create a project:
 
 ```bash
-python3 -m personal_maia.cli init my-style --workspace ./runs
+python3 -m rabbi.cli init my-style --workspace ./runs
 ```
 
 Download public Lichess games:
 
 ```bash
-python3 -m personal_maia.cli download \
+python3 -m rabbi.cli download \
   --project ./runs/my-style \
   --source https://lichess.org/@/PlayerName \
   --max-games 5000
@@ -113,7 +113,7 @@ python3 -m personal_maia.cli download \
 Or import local PGNs:
 
 ```bash
-python3 -m personal_maia.cli ingest \
+python3 -m rabbi.cli ingest \
   --project ./runs/my-style \
   --pgn games1.pgn games2.pgn \
   --player "Exact PGN Header Name"
@@ -122,7 +122,7 @@ python3 -m personal_maia.cli ingest \
 Convert games into Maia training chunks:
 
 ```bash
-python3 -m personal_maia.cli convert-data \
+python3 -m rabbi.cli convert-data \
   --project ./runs/my-style \
   --maia-repo external/src/maia-individual \
   --player "Exact PGN Header Name" \
@@ -138,7 +138,7 @@ Important Maia conversion constraints:
 Prepare a training config:
 
 ```bash
-python3 -m personal_maia.cli prepare-train \
+python3 -m rabbi.cli prepare-train \
   --project ./runs/my-style \
   --maia-repo external/src/maia-individual \
   --base-model external/src/maia-individual/models/maia-1900 \
@@ -150,7 +150,7 @@ python3 -m personal_maia.cli prepare-train \
 Run training when the TensorFlow/GPU environment is ready:
 
 ```bash
-python3 -m personal_maia.cli prepare-train \
+python3 -m rabbi.cli prepare-train \
   --project ./runs/my-style \
   --maia-repo external/src/maia-individual \
   --base-model external/src/maia-individual/models/maia-1900 \
@@ -164,7 +164,7 @@ python3 -m personal_maia.cli prepare-train \
 Package the newest trained weights:
 
 ```bash
-python3 -m personal_maia.cli package \
+python3 -m rabbi.cli package \
   --project ./runs/my-style \
   --name my-style \
   --lc0 external/bin/lc0 \
@@ -174,7 +174,7 @@ python3 -m personal_maia.cli package \
 Or package a specific weight file:
 
 ```bash
-python3 -m personal_maia.cli package \
+python3 -m rabbi.cli package \
   --project ./runs/my-style \
   --name my-style \
   --lc0 external/bin/lc0 \
@@ -185,8 +185,8 @@ python3 -m personal_maia.cli package \
 Smoke-test the engine:
 
 ```bash
-python3 -m personal_maia.cli smoke-test \
-  --engine ./engines/my-style/personal-maia-engine
+python3 -m rabbi.cli smoke-test \
+  --engine ./engines/my-style/rabbi-engine
 ```
 
 ## Using The Engine In en-croissant
@@ -194,14 +194,14 @@ python3 -m personal_maia.cli smoke-test \
 Add this executable as a local UCI engine:
 
 ```text
-engines/my-style/personal-maia-engine
+engines/my-style/rabbi-engine
 ```
 
 The wrapper launches Lc0 with the trained weights and forwards UCI traffic. It reports:
 
 ```text
-id name Personal Maia - <package name>
-id author Personal Maia
+id name Rabbi - <package name>
+id author Rabbi
 ```
 
 It also exposes:
@@ -218,7 +218,7 @@ By default, non-analysis `go ...` commands are rewritten to `go nodes <StyleNode
 The `build` command chains project creation, source download/import, PGN ingest, conversion config, and training config.
 
 ```bash
-python3 -m personal_maia.cli build \
+python3 -m rabbi.cli build \
   --name my-style \
   --workspace ./runs \
   --player "Exact PGN Header Name" \

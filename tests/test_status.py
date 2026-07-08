@@ -1,8 +1,8 @@
 from pathlib import Path
 
-from personal_maia.config import FilterConfig, init_project
-from personal_maia.data.ingest import ingest_local_pgn
-from personal_maia.status import collect_status
+from rabbi.config import FilterConfig, init_project
+from rabbi.data.ingest import ingest_local_pgn
+from rabbi.status import collect_status
 
 
 def test_collect_status(tmp_path: Path):

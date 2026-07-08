@@ -4,7 +4,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 import os
 
-from personal_maia.config import write_json
+from rabbi.config import write_json
 
 
 @dataclass(slots=True)
@@ -36,7 +36,7 @@ def create_engine_package(config: EnginePackageConfig) -> Path:
         "output_dir": str(output_dir),
     })
 
-    wrapper = output_dir / "personal-maia-engine"
+    wrapper = output_dir / "rabbi-engine"
     wrapper.write_text(_wrapper_script(), encoding="utf-8")
     wrapper.chmod(wrapper.stat().st_mode | 0o755)
 
@@ -93,9 +93,9 @@ def parse_wrapper_option(line):
 
 def filter_engine_output(line, name):
     if line.startswith("id name "):
-        return f"id name Personal Maia - {name}\\n"
+        return f"id name Rabbi - {name}\\n"
     if line.startswith("id author "):
-        return "id author Personal Maia\\n"
+        return "id author Rabbi\\n"
     if line.strip() == "uciok":
         return (
             "option name StyleNodes type spin default 1 min 1 max 800\\n"
@@ -128,7 +128,7 @@ def run_proxy(config):
 
     style_nodes = int(config.get("style_nodes", 1))
     analysis_mode = bool(config.get("analysis_mode", False))
-    name = str(config.get("name", "Personal Maia"))
+    name = str(config.get("name", "Rabbi"))
 
     threading.Thread(target=copy_output, args=(proc.stdout, sys.stdout, name), daemon=True).start()
     threading.Thread(target=copy_output, args=(proc.stderr, sys.stderr, name), daemon=True).start()
@@ -158,7 +158,7 @@ def run_proxy(config):
 
 
 def main(argv=None):
-    parser = ArgumentParser(description="Personal Maia UCI proxy.")
+    parser = ArgumentParser(description="Rabbi UCI proxy.")
     parser.add_argument("--config", type=Path, default=Path(__file__).resolve().with_name("engine.json"))
     args = parser.parse_args(argv)
     config = json.loads(args.config.read_text(encoding="utf-8"))
@@ -173,12 +173,12 @@ if __name__ == "__main__":
 def _package_readme(config: EnginePackageConfig) -> str:
     return f"""# {config.name}
 
-This is a Personal Maia engine package.
+This is a Rabbi engine package.
 
 Add this executable as a local UCI engine in en-croissant:
 
 ```text
-{os.fspath(config.output_dir / "personal-maia-engine")}
+{os.fspath(config.output_dir / "rabbi-engine")}
 ```
 
 Runtime:

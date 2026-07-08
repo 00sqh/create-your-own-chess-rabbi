@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from personal_maia.config import init_project, load_project
+from rabbi.config import init_project, load_project
 
 
 def test_init_project_creates_workspace(tmp_path: Path):

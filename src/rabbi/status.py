@@ -3,8 +3,8 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
-from personal_maia.config import ProjectPaths, read_json
-from personal_maia.maia.weights import find_latest_weights
+from rabbi.config import ProjectPaths, read_json
+from rabbi.maia.weights import find_latest_weights
 
 
 @dataclass(slots=True)

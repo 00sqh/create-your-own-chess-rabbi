@@ -9,7 +9,7 @@ import threading
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = ArgumentParser(description="UCI proxy for Personal Maia Lc0 packages.")
+    parser = ArgumentParser(description="UCI proxy for Rabbi Lc0 packages.")
     parser.add_argument("--config", required=True, type=Path)
     args = parser.parse_args(argv)
     config = json.loads(args.config.read_text(encoding="utf-8"))
@@ -36,7 +36,7 @@ def run_proxy(config: dict[str, object]) -> int:
     style_nodes = int(config.get("style_nodes", 1))
     analysis_mode = bool(config.get("analysis_mode", False))
 
-    name = str(config.get("name", "Personal Maia"))
+    name = str(config.get("name", "Rabbi"))
     stdout_thread = threading.Thread(target=_copy_output, args=(proc.stdout, sys.stdout, name), daemon=True)
     stderr_thread = threading.Thread(target=_copy_output, args=(proc.stderr, sys.stderr), daemon=True)
     stdout_thread.start()
@@ -92,9 +92,9 @@ def parse_wrapper_option(line: str) -> tuple[str, str] | None:
 
 def filter_engine_output(line: str, name: str) -> str:
     if line.startswith("id name "):
-        return f"id name Personal Maia - {name}\n"
+        return f"id name Rabbi - {name}\n"
     if line.startswith("id author "):
-        return "id author Personal Maia\n"
+        return "id author Rabbi\n"
     if line.strip() == "uciok":
         return (
             "option name StyleNodes type spin default 1 min 1 max 800\n"
@@ -106,7 +106,7 @@ def filter_engine_output(line: str, name: str) -> str:
 
 def _copy_output(src, dest, name: str | None = None) -> None:
     for line in src:
-        dest.write(filter_engine_output(line, name or "Personal Maia"))
+        dest.write(filter_engine_output(line, name or "Rabbi"))
         dest.flush()
 
 

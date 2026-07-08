@@ -1,4 +1,4 @@
-"""Personal Maia package."""
+"""Rabbi package."""
 
 __all__ = ["__version__"]
 
