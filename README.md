@@ -1,6 +1,6 @@
-# Create Your Own Chess Robit
+# Create Your Own Chess Rabbi
 
-Create Your Own Chess Robit is a local-first tool for building a chess engine package that imitates one player's move style.
+Create Your Own Chess Rabbi is a local-first tool for building a chess engine package that imitates one player's move style.
 
 The project is not a from-scratch chess engine. It uses:
 

@@ -5,12 +5,12 @@ build-backend = "hatchling.build"
 [project]
 name = "personal-maia"
 version = "0.1.0"
-description = "Create Your Own Chess Robit: local-first tooling for creating personal-style Maia/Lc0 chess engine packages."
+description = "Create Your Own Chess Rabbi: local-first tooling for creating personal-style Maia/Lc0 chess engine packages."
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
 authors = [
-  { name = "Create Your Own Chess Robit contributors" }
+  { name = "Create Your Own Chess Rabbi contributors" }
 ]
 dependencies = []
 
